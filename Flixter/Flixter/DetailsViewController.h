@@ -11,8 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DetailsViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIScrollView *postImageScrollView;
-@property (weak, nonatomic) IBOutlet UILabel *postSynopsis;
+@property (weak, nonatomic) IBOutlet UILabel *detailTitle;
+@property (weak, nonatomic) IBOutlet UILabel *detailSynopsis;
+@property (weak, nonatomic) IBOutlet UIImageView *detailImage;
+
 @property (weak, nonatomic)IBOutlet NSDictionary *detailDict;
 @end
 
