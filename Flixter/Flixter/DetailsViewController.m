@@ -19,13 +19,13 @@
     NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
     NSString *posterURLString = _detailDict[@"poster_path"];
         
-    // appending the actual path identifier to the prefix url
+        // appending the actual path identifier to the prefix url
     NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
-    //converting string to desired type
+        //converting string to desired type
     NSURL *posterURL = [NSURL URLWithString: fullPosterURLString];
         
-    // linking posterURL to our view
-    [self.detailImage setImageWithURL:posterURL];
+        // linking posterURL to our view
+        [self.detailImage setImageWithURL:posterURL]; 
 }
 
 @end

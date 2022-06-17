@@ -59,13 +59,13 @@ NSString * const reuseIdentifier = @"Cell";
     self.flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     self.flowLayout.minimumLineSpacing = 0;
     self.flowLayout.minimumInteritemSpacing = 0;
-    self.flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 10);
+    self.flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 5);
 }
 
 // MARK: UICollectionViewDelegateFlowLayout methods
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     int totalwidth = self.CollectionView.bounds.size.width;
-    int numberOfCellsPerRow = 3;
+    int numberOfCellsPerRow = 4;
     int oddEven = indexPath.row / numberOfCellsPerRow % 2;
     int dimensions = (CGFloat)(totalwidth / numberOfCellsPerRow);
     if (oddEven == 0) {
@@ -118,9 +118,6 @@ NSString * const reuseIdentifier = @"Cell";
 */
 
 #pragma mark <UICollectionViewDataSource>
-//- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-//    return self.moviesArray.count;
-//}
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.moviesArray.count;
@@ -149,12 +146,12 @@ NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark <UICollectionViewDelegate>
 
-/*
+
 // Uncomment this method to specify if the specified item should be highlighted during tracking
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
 	return YES;
 }
-*/
+
 
 /*
 // Uncomment this method to specify if the specified item should be selected
