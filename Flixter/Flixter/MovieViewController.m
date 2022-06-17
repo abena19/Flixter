@@ -27,11 +27,6 @@
     self.tableView.dataSource = self;
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     
-    
-    // auto layout resizing
-//    self.tableView.estimatedRowHeight = 100;
-//    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    
     //call helper getMovies
     [self getMovies];
     
@@ -51,8 +46,6 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
     NSIndexPath *myIndexPath = [self.tableView indexPathForCell:sender];
     NSDictionary *dataToPass = self.myArray[myIndexPath.row];
     DetailsViewController *detailVC = [segue destinationViewController];
@@ -69,6 +62,16 @@
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
            if (error != nil) {
                NSLog(@"%@", [error localizedDescription]);
+               UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Cannot Get Movies" message:@"Internet connection seems to be offline" preferredStyle:UIAlertControllerStyleAlert];
+
+               UIAlertAction *tryAgain = [UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                                       //button click event
+                                   }];
+               UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+               [alert addAction:cancel];
+               [alert addAction:tryAgain];
+               [self presentViewController:alert animated:YES completion:nil];
+
            }
            else {
                
