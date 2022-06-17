@@ -198,6 +198,7 @@
                                         <size key="customSize" width="128" height="110"/>
                                         <connections>
                                             <outlet property="collectionViewImage" destination="MbF-ui-0n4" id="DcJ-n4-rFC"/>
+                                            <segue destination="wMh-F8-ZSg" kind="show" id="PNe-3w-Hnf"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -216,9 +217,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dtI-r1-vlP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1466.6666666666667" y="-194.19642857142856"/>
+            <point key="canvasLocation" x="1578" y="-194"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="PNe-3w-Hnf"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="now_playing_tabbar_item" width="21" height="21"/>
         <image name="projector_tabbar_item" width="21" height="25"/>

@@ -8,6 +8,7 @@
 #import "GridViewController.h"
 #import "MovieCollectionViewCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "DetailsViewController.h"
 
 @interface GridViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
@@ -46,10 +47,6 @@ NSString * const reuseIdentifier = @"Cell";
     // Uncomment the following line to preserve selection between presentations
     //self.clearsSelectionOnViewWillAppear = NO;
     
-    
-    // Register cell classes
-   // [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    // Do any additional setup after loading the view.
 }
 
 
@@ -108,14 +105,13 @@ NSString * const reuseIdentifier = @"Cell";
     [task resume];
 }
 
-/*
-#pragma mark - Navigation
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+     NSIndexPath *myIndexPath = [self.CollectionView indexPathForCell:sender];
+     NSDictionary *dataToPass = self.moviesArray[myIndexPath.row];
+     DetailsViewController *detailVC = [segue destinationViewController];
+     detailVC.detailDict = dataToPass;
+ }
 
 #pragma mark <UICollectionViewDataSource>
 
