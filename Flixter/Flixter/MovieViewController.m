@@ -99,6 +99,10 @@
 // cellForRow
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     myTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myTableViewCell"];
+    // cell selection effect
+    UIView *backgroundView = [[UIView alloc] init];
+    backgroundView.backgroundColor = UIColor.systemTealColor;
+    cell.selectedBackgroundView = backgroundView;
     
 //    this is of a dictionary type
     NSDictionary *movieContents = self.myArray[indexPath.row];
